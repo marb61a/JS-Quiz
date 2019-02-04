@@ -78,4 +78,42 @@ div.landing-inputs-wrapper input {
     display: block;
 }
 
+/* Chrome/Opera/Safari */
+div.landing-inputs-wrapper input::-webkit-input-placeholder {
+    color: #aaa;
+}
 
+/* Firefox 19+ */
+div.landing-inputs-wrapper input::-moz-placeholder {
+    color: #aaa;
+}
+
+div.landing-inputs-wrapper input:focus {
+    border-bottom: 2px solid #fff;
+}
+
+#start-quiz-btn {
+    font-family: 'Cabin', sans-serif;
+    width: 300px;
+    padding: 13px 10px;
+    margin: 15px auto;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    border-radius: 25px;
+    border: 2px solid #aaa;
+    outline: none;
+    color: #aaa;
+    background: transparent;
+    display: block;
+    transform: translateX(0px);
+    transition: all .3s;
+}
+
+#start-quiz-btn:hover {
+    border: 2px solid #fff;
+    color: #fff;
+    transform: translateX(-1px);
+}
+
+
+/* Admin Section */
