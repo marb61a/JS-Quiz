@@ -21,4 +21,33 @@ var quizController = (function() {
             localStorage.removeItem('questionCollection');
         }
     };
-})
+})();
+
+
+// UI Controller
+var UIController =(function(){
+    var domItems = {
+        // Admin Panel items
+        questInsertBtn: document.getElementById('question-insert-btn')
+    };
+    
+    return {
+        getDomItems: domItems,
+        addInputsDynamically: function(){
+            var addInput = function() {
+                
+            };
+        }
+    };
+    
+})();
+
+
+// Controller
+var controller = (function(quizCtrl, UICtrl) {
+    var selectedDomItems = UICtrl.getDomItems;
+    
+    UICtrl.addInputsDynamically();
+    
+})(quizController, UIController);
+
