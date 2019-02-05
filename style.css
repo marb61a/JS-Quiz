@@ -212,3 +212,50 @@ div.forms-wrapper input[type="text"] {
     transition: all .5s;
 }
 
+div.forms-wrapper input[type="text"]:focus {
+    border: .5px solid #3b8beb;
+    background: #555;
+}
+
+div.forms-wrapper input[type="radio"] {
+    position: absolute;
+    left: 60px;
+    top: 15px;
+}
+
+#question-insert-btn {
+    font-family: 'Cabin', sans-serif;
+    margin-left: 80px;
+    padding: 10px 10px;
+    width: 120px;
+    color: #eee;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    background: #222;
+    border-radius: 25px;
+    outline: none;
+    border: 1px solid #ccc;
+    transition: background .3s, border .3s, box-shadow .3s;
+}
+
+#question-insert-btn:hover {
+    color: #eee;
+    border: 1px solid #fff;
+    background: #555;
+}
+
+#admin-logout-btn {
+    font-family: 'Cabin', sans-serif;
+    font-size: 15px;
+    float: right;
+    margin: 20px;
+    background-color: #222; 
+    border-radius: 25px;
+    width: 110px;
+    letter-spacing: 1.5px;
+    color: #eee;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all .3s;
+}
