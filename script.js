@@ -21,6 +21,27 @@ var quizController = (function() {
             localStorage.removeItem('questionCollection');
         }
     };
+    
+    return {
+        addQuestionOnLocalStorage: function(newQuestTexts, opts){
+            var optionsArr, corrAns, questionId, newQuestion, getStoredQuests, isChecked;
+            
+            optionsArr = [];
+            
+            for(var i = 0; i < opts.length; i++) {
+                if(opts[i].value !== "") {
+                    optionsArr.push(opts[i].value);
+                }
+                
+                if(opts[i].previousElementSibling.checked && opts[i].value !== "") {
+                    corrAns = optionsArr[i].value;
+                    
+                    isChecked = true;
+                }
+            }
+        }
+    };
+
 })();
 
 
@@ -28,7 +49,9 @@ var quizController = (function() {
 var UIController =(function(){
     var domItems = {
         // Admin Panel items
-        questInsertBtn: document.getElementById('question-insert-btn')
+        questInsertBtn: document.getElementById('question-insert-btn'),
+        newQuestionText: document.getElementById('new-question-text'),
+        adminOptions: document.querySelectorAll('.admin-option')
     };
     
     return {
