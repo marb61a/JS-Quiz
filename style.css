@@ -162,3 +162,53 @@ div.header h2 {
     padding: 20px;
     color: #fff;
 }
+
+div.forms-wrapper {
+    width: 80%;
+    margin: 1% auto;
+}
+
+#new-question-text {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    color: #eee;
+    max-width: 500px;
+    min-width: 300px;
+    width: 50%;
+    height: 60px;
+    border-radius: 2px;
+    border: .5px solid #eee;
+    display: block;
+    margin: 10px 0 10px 80px;
+    padding: 7px;
+    outline: none;
+    background: #444;
+    transition: all .5s;
+}
+
+#new-question-text:focus {
+    border: .5px solid #3b8beb;
+    background: #555;
+}
+
+div.admin-option-wrapper {
+    position: relative;
+    width: 70%;
+}
+
+div.forms-wrapper input[type="text"] {
+    width: 300px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 17px;
+    color: #eee;
+    display: block;
+    margin: 10px 0 10px 80px;
+    padding: 10px 5px;
+    border-radius: 2px;
+    border: .5px solid #eee;
+    outline: none;
+    background: #444;
+    animation: fade .5s;
+    transition: all .5s;
+}
+
