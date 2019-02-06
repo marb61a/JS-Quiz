@@ -259,3 +259,54 @@ div.forms-wrapper input[type="radio"] {
     outline: none;
     transition: all .3s;
 }
+
+#admin-logout-btn:hover {
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: #555; 
+}
+
+#questions-clear-btn {
+    letter-spacing: 1.5px;
+    font-family: 'Cabin', sans-serif;
+    color: #eee;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 25px;
+    width: 120px;
+    background: #222;
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all .3s;
+}
+
+#questions-clear-btn:hover {
+    border: 1px solid #fff;
+    background: #555; 
+}
+
+#question-update-btn {
+    font-family: 'Cabin', sans-serif;
+    padding: 10px;
+    margin-left: 80px;
+    width: 110px;
+    color: #eee;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    background: #222;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    visibility: hidden;
+    transition: background .3s, border .3s, box-shadow .3s;
+}
+
+#question-update-btn:hover {
+    border: 1px solid #fff;
+    background: #555;
+    color: #fff;
+}
+
