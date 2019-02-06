@@ -310,3 +310,46 @@ div.forms-wrapper input[type="radio"] {
     color: #fff;
 }
 
+#question-delete-btn {
+    font-family: 'Cabin', sans-serif;
+    margin-left: 80px;
+    padding: 10px;
+    width: 110px;
+    color: #eee;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    background: #222;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    visibility: hidden;
+    transition: background .3s, border .3s, box-shadow .3s;
+}
+
+#question-delete-btn:hover {
+    border: 1px solid #fff;
+    background: #555;
+}
+
+div.inserted-questions-wrapper {
+    padding: 10px 0;
+    width: 60%;
+    height: 20%;
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    background: rgba(0, 0, 0, .65);
+    border-radius: 3px;
+    overflow: auto;
+}
+
+div.inserted-questions-wrapper::-webkit-scrollbar {
+    background: rgba(0,0,0,.2);
+    width: 15px;
+}
+
+div.inserted-questions-wrapper::-webkit-scrollbar-thumb {
+      background-color: #333; 
+}
+
+
