@@ -67,8 +67,25 @@ var quizController = (function() {
                         getStoredQuests.push(newQuestion);
                         questionLocalStorage.setQuestionCollection(getStoredQuests);
                         
+                        newQuestText.value = "";
+                        for(var x = 0; x < opts.length; x++) {
+                            opts[x].value = "";
+                            opts[x].previousElementSibling.checked = false;
+                        }
+                        
+                        console.log(questionLocalStorage.getQuestionCollection());
+                        return true;
+                    } else {
+                        alert('You missed to check correct answer, or you checked answer without value');
+                        return false;
                     }
+                } else {
+                    alert('You must insert at least two options');
+                    return false;
                 }
+            } else {
+                alert('Please, Insert Question');
+                return false;
             }
         }
     };
@@ -82,14 +99,18 @@ var UIController =(function(){
         // Admin Panel items
         questInsertBtn: document.getElementById('question-insert-btn'),
         newQuestionText: document.getElementById('new-question-text'),
-        adminOptions: document.querySelectorAll('.admin-option')
+        adminOptions: document.querySelectorAll('.admin-option'),
+        
     };
     
     return {
         getDomItems: domItems,
         addInputsDynamically: function(){
             var addInput = function() {
+                var inputHTML, z;
+                z = document.querySelectorAll(".admin-option").length;
                 
+                inputHTML = '';
             };
         }
     };
