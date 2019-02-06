@@ -22,9 +22,19 @@ var quizController = (function() {
         }
     };
     
+    if(questionLocalStorage.getQuestionCollection() === null) {
+        questionLocalStorage.setQuestionCollection([]);
+    }
+    
     return {
-        addQuestionOnLocalStorage: function(newQuestTexts, opts){
+        getQuestionLocalStorage: questionLocalStorage,
+        
+        addQuestionOnLocalStorage: function(newQuestText, opts){
             var optionsArr, corrAns, questionId, newQuestion, getStoredQuests, isChecked;
+            
+            if(questionLocalStorage.getQuestionCollection() === null) {
+                questionLocalStorage.setQuestionCollection([]);
+            }
             
             optionsArr = [];
             
@@ -37,6 +47,27 @@ var quizController = (function() {
                     corrAns = optionsArr[i].value;
                     
                     isChecked = true;
+                }
+            }
+            
+            if(questionLocalStorage.getQuestionCollection().length > 0) {
+                questionId = questionLocalStorage.getQuestionCollection()[
+                    questionLocalStorage.getQuestionCollection().length - 1
+                ].id + 1;
+            } else {
+                questionId = 0;
+            }
+            
+            if(newQuestText.value !== "") {
+                if(optionsArr.length > 1) {
+                    if(isChecked) {
+                        newQuestion = new Question(questionId, newQuestText.value, optionsArr, corrAns);
+                        
+                        getStoredQuests = questionLocalStorage.getQuestionCollection();
+                        getStoredQuests.push(newQuestion);
+                        questionLocalStorage.setQuestionCollection(getStoredQuests);
+                        
+                    }
                 }
             }
         }
