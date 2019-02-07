@@ -352,4 +352,41 @@ div.inserted-questions-wrapper::-webkit-scrollbar-thumb {
       background-color: #333; 
 }
 
+div.inserted-questions-wrapper p {
+    color: #eee;
+    background: #444;
+    padding: 6px 10px;
+    width: 92%;
+    margin: 5px auto;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    transition: background .3s;
+}
 
+div.inserted-questions-wrapper p:hover {
+    border: 1px solid #fff;
+    background: #555;
+}
+
+div.inserted-questions-wrapper p span {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+}
+
+div.inserted-questions-wrapper p button {
+    font-family: 'Cabin', sans-serif;
+    float: right;
+    color: #eee;
+    padding: 4px 10px;
+    margin-top: -4px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    letter-spacing: 1.5px;
+    background-color: #222;
+    transition: all .3s;
+}
+
+div.inserted-questions-wrapper p button:hover {
+    background: #777;
+    border: 1px solid #fff;
+}
