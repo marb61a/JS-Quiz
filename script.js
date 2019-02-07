@@ -127,8 +127,20 @@ var UIController =(function(){
         
         createQuestionList: function(getQuestions) {
             var questHTML, numberingArr;
+            numberingArr = [];
             
+            domItems.insertedQuestsWrapper.innerHTML = "";
+            
+            for(var i = 0; i < getQuestions.getQuestionCollection().length; i++) {
+                numberingArr.push(i + 1);
+                questHTML = '<p><span>' + numberingArr[i] + '. ' +
+                getQuestions.getQuestionCollection()[i].questionText + '</span><button id="question-' +
+                getQuestions.getQuestionCollection()[i].id + '">Edit</button></p>';
+                
+                domItems.insertedQuestsWrapper.insertAdjacentHTML('afterbegin', questHTML);
+            }
         }
+        
     };
     
 })();
@@ -139,6 +151,13 @@ var controller = (function(quizCtrl, UICtrl) {
     var selectedDomItems = UICtrl.getDomItems;
     
     UICtrl.addInputsDynamically();
+    
+    UICtrl.createQuestionList(quizCtrl.getQuestionLocalStorage);
+    
+    selectedDomItems.questInsertBtn.addEventListener('click', function(){
+        var adminOptions = document.querySelectorAll('.admin-option');
+        
+    });
     
 })(quizController, UIController);
 
