@@ -431,3 +431,57 @@ div.result-list-container h2 {
     transition: all .3s;
 }
 
+div.results-list-container::-webkit-scrollbar {
+    background: rgba(0,0,0,.2);
+    width: 15px
+}
+
+div.results-list-container::-webkit-scrollbar-thumb {
+      background-color: #333;  
+}
+
+div.result-list-container p {
+   font-family: 'Josefin Sans', sans-serif;
+   width: 90%;
+   padding: 5px;
+   margin: 10px auto;
+   text-align: center;
+   border-radius: 2px;
+   border: 1px solid #ccc;
+   text-transform: capitalize;
+   overflow: hidden;
+   color: #eee;
+   background: #444;
+   transition: background .3s, border .3s;
+}
+
+div.results-list-container p:hover {
+    border: 1px solid #eee;
+    background: #555;
+}
+
+div.results-list-container p span {
+    margin: 5px;
+    float: left;
+    font-size: 17px;
+}
+
+.delete-result-btn {
+    font-family: 'Cabin', sans-serif;
+    letter-spacing: 1.5px;
+    display: block;
+    float: right;
+    padding: 5px 10px;
+    border-radius: 25px;
+    color: #eee;
+    background: #222;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: background .3s, border .3s;
+} 
+
+.delete-result-btn:hover {
+    background: #777;
+    border: 1px solid #fff;
+}
+
