@@ -139,6 +139,25 @@ var UIController =(function(){
                 
                 domItems.insertedQuestsWrapper.insertAdjacentHTML('afterbegin', questHTML);
             }
+        },
+        
+        editQuestList: function(event, storageQuestList, addInpsDynFn, updateQuestListFn) {
+            var getId, getStorageQuestList, foundItem, placeInArr, optionHTML;
+            
+            if('question-'.indexOf(event.target.id)) {
+                getId = parseInt(event.target.id.split('-')[1]);
+                getStorageQuestList = storageQuestList.getQuestionCollection();
+                
+                for(var i = 0; i < getStorageQuestList.length; i++) {
+                    if(getStorageQuestList[i].id === getId) {
+                        foundItem = getStorageQuestList[i];
+                        placeInArr = i;
+                    }
+                }
+                
+                domItems.newQuestionText.value = foundItem.questionText;
+                
+            }
         }
         
     };
@@ -156,6 +175,14 @@ var controller = (function(quizCtrl, UICtrl) {
     
     selectedDomItems.questInsertBtn.addEventListener('click', function(){
         var adminOptions = document.querySelectorAll('.admin-option');
+        
+        var checkBoolean = quizCtrl.addQuestionOnLocalStorage(selectedDomItems.newQuestionText, adminOptions);
+        if(checkBoolean) {
+            UI.createQuestionList(quizCtrl.getQuestionLocalStorage);    
+        }
+    });
+    
+    selectedDomItems.insertedQuestsWrapper.addEventListener('click', function(e) {
         
     });
     
