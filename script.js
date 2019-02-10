@@ -182,7 +182,32 @@ var UIController =(function(){
                     foundItem.questionText = domItems.newQuestionText.value;
                     foundItem.correctAnswer = '';
                     
+                    for(var i = 0; i < optionEls.length; i++) {
+                        if(optionEls[i].value !== '') {
+                            newOptions.push(optionEls[i].value);
+                            
+                            if(optionEls[i].previousElementSibling.checked) {
+                                foundItem.correctAnswer = optionEls[i].value;
+                            }
+                        }
+                    }
+                    
+                    foundItem.options = newOptions;
+                    if(foundItem.questionText !== '') {
+                        if(foundItem.options.length > 1) {
+                            if(foundItem.correctAnswer !== "") {
+                                getStorageQuestList.splice(placeInArr, 1, foundItem);
+                                
+                            }
+                        } else {
+                            
+                        }
+                    } else {
+                        alert('Please, insert question');
+                    }
                 };
+                
+                domItems.questUpdateBtn.onclick = updateQuestion;
             }
         }
         
