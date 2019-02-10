@@ -526,3 +526,45 @@ h2#asked-question-text {
     width: 90%;
     margin: 30px auto 10px auto;
 }
+
+div.instant-answer-container {
+    width: 80%;
+    margin: auto;
+    position: relative;
+    opacity: 0;
+}
+
+div#instant-answer-wrapper {
+    border-radius: 5px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+div#instant-answer-wrapper::before {
+    content: "";
+    height: 0;
+    position: absolute;
+    width: 0;
+    z-index: 1;
+    left: 43px;
+    bottom: 16px;
+    border: medium solid white;
+    border-width: 8px 8px 8px 0;
+    border-color: transparent #eee transparent transparent;
+}
+
+#emotion {
+    display: block;
+    float: left;
+    margin: 14px 15px;
+}
+
+div.red {
+    border: 1px solid #e62739;
+    background-color: rgba(250, 0, 0, .3);
+}
+
+div.green {
+    border: 1px solid #4CAF50;
+    background-color: rgba(0, 250, 0, .2);
+}
