@@ -156,7 +156,33 @@ var UIController =(function(){
                 }
                 
                 domItems.newQuestionText.value = foundItem.questionText;
+                domItems.adminOptionsContainer.innerHTML = "";
+                optionHTML = '';
                 
+                for(var x = 0; x < foundItem.options.length; x++) {
+                    optionHTML += '<div class="admin-option-wrapper"><input type="radio" class="admin-option-' + 
+                    x + '" name="answer" value="' + x + '"><input type="text" class="admin-option admin-option-' + 
+                    x + '" value="'+ foundItem.options[x] + '"></div>';
+                }
+                
+                domItems.adminOptionsContainer.innerHTML = optionHTML;
+
+                domItems.questDeleteBtn.style.visibility = 'visible';
+                domItems.questUpdateBtn.style.visibility = 'visible';
+                domItems.questInsertBtn.style.visibility = 'hidden';
+                domItems.questsClearBtn.style.pointerEvents = 'none';
+                
+                addInpsDynFn();
+                
+                var updateQuestion = function() {
+                    var newOptions, optionEls;
+                    newOptions = [];
+                    
+                    optionEls.document.querySelectorAll('.admin-option');
+                    foundItem.questionText = domItems.newQuestionText.value;
+                    foundItem.correctAnswer = '';
+                    
+                };
             }
         }
         
