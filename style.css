@@ -485,3 +485,44 @@ div.results-list-container p span {
     border: 1px solid #fff;
 }
 
+
+/* Quiz Section */
+section.quiz-container {
+    height: 90vh;
+    width: 95%;
+    margin: 5vh 2.5%;
+    position: relative;
+    background: linear-gradient(to bottom right,rgba(0, 0, 0, .35), rgba(0, 0, 0, .75)), url("images/quiz-bg.jpg") no-repeat center;
+    box-shadow: 0px 10px 25px #aaa;
+    background-size: cover;
+    overflow: hidden;
+    animation: fade .8s;
+}
+
+div.quiz-wrapper {
+    position: absolute;
+    width: 60%;
+    height: 80vh;
+    background: rgba(0, 0, 0, .65);
+    margin: 5vh 5% 5vh 3%;
+    border-radius: 3px;
+    overflow: auto;
+}
+
+div.quiz-wrapper::-webkit-scrollbar {
+    background: rgba(0,0,0,.2);
+    width: 15px
+}
+
+div.quiz-wrapper::-webkit-scrollbar-thumb {
+      background-color: #333;  
+}
+
+h2#asked-question-text {
+    font-family: 'Raleway', sans-serif;
+    color: #eee;
+    text-indent: 15px;
+    font-size: 26px;
+    width: 90%;
+    margin: 30px auto 10px auto;
+}
