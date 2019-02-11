@@ -227,9 +227,34 @@ var UIController =(function(){
                 };
                 
                 domItems.questUpdateBtn.onclick = updateQuestion;
+                
+                var deleteQuestion = function() {
+                    getStorageQuestList.splice(placeInArr, 1);
+                    storageQuestList.setQuestionCollection(getStorageQuestList);
+                    backDefaultView();
+                };
+                
+                domItems.questDeleteBtn.onclick = deleteQuestion();
             }
-        }
+        },
         
+        clearQuestList: function(storageQuestList) {
+            if(storageQuestList.getQuestionCollection() !== null) {
+                if(storageQuestList.getQuestionCollection().length > 0) {
+                    var conf = confirm('Warning! You will lose the entire question list');
+                    
+                    if(conf) {
+                        storageQuestList.removeQuestionCollection();
+                        domItems.insertedQuestsWrapper.innerHTML = "";
+                    }
+                }    
+            }
+        },
+        
+        displayQuestion: function(storageQuestList, progress) {
+            var newOptionHTML, characterArr;
+            
+        }
     };
     
 })();
