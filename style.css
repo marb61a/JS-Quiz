@@ -568,3 +568,49 @@ div.green {
     border: 1px solid #4CAF50;
     background-color: rgba(0, 250, 0, .2);
 }
+
+div#instant-answer-wrapper p {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #eee;
+    float: left;
+    width: 80%;
+    margin-top: 8px;
+}
+
+div#instant-answer-wrapper button {
+    font-family: 'Cabin', sans-serif;
+    display: inline;
+    float: right;
+    padding: 4px 10px;
+    background: #222;
+    outline: none;
+    border: 1px solid #eee;
+    color: #eee;
+    border-radius: 25px;
+    letter-spacing: 1.5px;
+    font-size: 16px;
+    transition: background .3s, color .3s, border .3s;
+}
+
+div#instant-answer-wrapper button:hover {
+    background: #777;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+div.quiz-options-wrapper {
+    width: 80%;
+    margin: 40px auto 0 auto;
+}
+
+div.quiz-options-wrapper div {
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding: 20px 0;
+    position: relative;
+    transition: all .5s;
+    background-color: #444;
+    overflow: hidden;
+    animation: fade 1s;
+}
