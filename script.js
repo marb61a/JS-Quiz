@@ -174,6 +174,24 @@ var UIController =(function(){
                 
                 addInpsDynFn();
                 
+                var backDefaultView = function() {
+                    var updatedOptions;
+                    domItems.newQuestionText.value = '';
+                    updatedOptions = document.querySelectorAll('.admin-option');
+
+                    for(var i = 0; i < updatedOptions.length; i++) {
+                        updatedOptions[i].value = '';
+                        updatedOptions[i].previousElementSibling.checked = false;
+                    }
+                    
+                    domItems.questDeleteBtn.style.visibility = 'hidden';
+                    domItems.questUpdateBtn.style.visibility = 'hidden';
+                    domItems.questInsertBtn.style.visibility = 'visible';
+                    domItems.questsClearBtn.style.pointerEvents = '';
+
+                    updateQuestListFn(storageQuestList);
+                };
+                
                 var updateQuestion = function() {
                     var newOptions, optionEls;
                     newOptions = [];
@@ -197,10 +215,11 @@ var UIController =(function(){
                         if(foundItem.options.length > 1) {
                             if(foundItem.correctAnswer !== "") {
                                 getStorageQuestList.splice(placeInArr, 1, foundItem);
-                                
+                                getStorageQuestList.setQuestionCollection(getStorageQuestList);
+                                backDefaultView();
                             }
                         } else {
-                            
+                            alert('You missed to check correct answer, or you checked an answer without a value');
                         }
                     } else {
                         alert('Please, insert question');
