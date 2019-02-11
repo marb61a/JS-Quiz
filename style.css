@@ -614,3 +614,43 @@ div.quiz-options-wrapper div {
     overflow: hidden;
     animation: fade 1s;
 }
+
+div.quiz-options-wrapper div:hover {
+    border: 1px solid #fff;
+    bottom: .5px;
+    background-color: #555;
+    cursor: pointer;
+}
+
+div.quiz-options-wrapper div:hover > p {
+    color: #fff;
+}
+
+div.quiz-options-wrapper div span {
+    display: block;
+    padding: 5px 10px;
+    float: left;
+    text-align: center;
+    margin-left: 20px;
+    font-size: 25px;
+    border: 1px solid #eee;
+    color: #eee;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: all .2s;
+    background: rgba(65, 179, 163, .5)
+}
+
+div.quiz-options-wrapper div span::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    width: 0;
+    z-index: 1;
+    left: 31px;
+    bottom: -0px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 10px;
+    border-color: #eee transparent transparent transparent;
+    transition: all .2s;
+}
