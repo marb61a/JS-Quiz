@@ -272,10 +272,37 @@ var UIController =(function(){
                 domItems.quizOptionsWrapper.innerHTML = "";
                 
                 for(var i = 0; i < storageQuestList.getQuestionCollection()[progress.questionIndex].options.length; i++) {
-                    newOptionHTML = '';
+                    newOptionHTML = '<div class="choice-' + i +'"><span class="choice-' + i +'">' + 
+                    characterArr[i] + '</span><p  class="choice-' + i +'">' + 
+                    storageQuestList.getQuestionCollection()[progress.questionIndex].options[i] + '</p></div>';
                     
+                    domItems.quizoptionsWrapper.insertAdjacentHTML('beforeend', newOptionHTML);
                 }
             }
+        },
+        
+        displayProgress: function(storageQuestList, progress) {
+            domItems.progressBar.max = storageQuestList.getQuestionCollection().length;
+            domItems.progressBar.value = progress.questionIndex + 1;
+            domItems.progressBar.textContent = (progress.questionIndex + 1) + '/' + storageQuestList.getQuestionCollection().length;
+        },
+        
+        newDesign: function(ansResult, selectedAnswer) {
+            var twoOptions, index;
+            index = 0;
+            
+            if(ansResult) {
+                index = 1;
+            }
+            
+            twoOptions = {
+                instAnswerText: ['This is a wrong answer', 'This is a correct answer'],
+                
+            };
+        },
+        
+        resetDesign: function() {
+            
         }
     };
     
