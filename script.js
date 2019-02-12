@@ -87,6 +87,10 @@ var quizController = (function() {
                 alert('Please, Insert Question');
                 return false;
             }
+        },
+        
+        checkAnswer: function(ans) {
+            
         }
     };
 
@@ -96,13 +100,21 @@ var quizController = (function() {
 // UI Controller
 var UIController =(function(){
     var domItems = {
-        // Admin Panel items
+        // Admin Panel elements
         questInsertBtn: document.getElementById('question-insert-btn'),
         newQuestionText: document.getElementById('new-question-text'),
         adminOptions: document.querySelectorAll('.admin-option'),
         adminOptionsContainer: document.querySelector(".admin-options-container"),
         insertedQuestsWrapper: document.querySelector(".inserted-questions-wrapper"),
+        questUpdateBtn: document.getElementById('question-update-btn'),
+        questDeleteBtn: document.getElementById('question-delete-btn'),
+        questsClearBtn: document.getElementById('questions-clear-btn'),
         
+        // Quiz Section elements
+        askedQuestText: document.getElementById('asked-question-text'),
+        quizoptionsWrapper: document.querySelector('.quiz-options-wrapper'),
+        progressBar: document.querySelector('progress'),
+        progressPar: document.getElementById('progress')
     };
     
     return {
@@ -253,7 +265,17 @@ var UIController =(function(){
         
         displayQuestion: function(storageQuestList, progress) {
             var newOptionHTML, characterArr;
+            characterArr = ['A', 'B', 'C', 'D', 'E', 'F'];
             
+            if(storageQuestList.getQuestionCollection().length > 0) {
+                domItems.askedQuestText.textContent = storageQuestList.getQuestionCollection()[progress.questionIndex].questionText;
+                domItems.quizOptionsWrapper.innerHTML = "";
+                
+                for(var i = 0; i < storageQuestList.getQuestionCollection()[progress.questionIndex].options.length; i++) {
+                    newOptionHTML = '';
+                    
+                }
+            }
         }
     };
     
