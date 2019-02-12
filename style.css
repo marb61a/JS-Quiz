@@ -688,4 +688,50 @@ div.progressBar {
     justify-content: center;
 }
 
+div.progressBar progress {
+    position: absolute;
+    width: 250px;
+    height: 25px;
+    display: block;
+    bottom: 40px;
+}
 
+progress {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Determinate */
+progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Indeterminate */
+progress:not([value]) {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+progress::-webkit-progress-bar {
+    background: #aaa;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+    border-radius: 25px;
+    border: 1px solid #eee;
+}
+
+progress::-webkit-progress-value {
+    background-color: #444;
+    border-radius: 25px;
+}
+
+progress::-moz-progress-bar {
+    background-color: #444;
+    border-radius: 3px;
+}
