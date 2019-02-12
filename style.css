@@ -654,3 +654,38 @@ div.quiz-options-wrapper div span::before {
     border-color: #eee transparent transparent transparent;
     transition: all .2s;
 }
+
+div.quiz-options-wrapper div:hover > span {
+    border: 1px solid #ddd;
+    color: #fff;
+    background-color: rgba(65, 179, 163, .7);
+}
+
+div.quiz-options-wrapper div:hover > span::before {
+    border-color: #fff transparent transparent transparent; 
+}
+
+div.quiz-options-wrapper div p {
+    font-family: 'Josefin Sans', sans-serif;
+    float: left;
+    margin-left: 10px;
+    font-size: 20px;
+    color: #eee;
+    transition: all .2s;
+}
+
+
+/* Progress Bar */
+div.progressBar {
+    font-family: 'Cormorant Garamond', serif;
+    background: rgba(0, 0, 0, .65);
+    position: absolute;
+    right: 9%;
+    width: 300px;
+    height: 300px;
+    margin-top: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+
