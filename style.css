@@ -735,3 +735,49 @@ progress::-moz-progress-bar {
     background-color: #444;
     border-radius: 3px;
 }
+
+p#progress {
+    border: 1px solid #eee;
+    position: absolute;
+    top: 70px;
+    padding: 30px 40px;
+    font-size: 75px;
+    font-weight: bold;
+    color: #eee;
+    border-radius: 3px;
+    background-color: #444;
+}
+
+
+/* Final Result Section */
+section.final-result-container {
+    font-family: 'Raleway', sans-serif;
+    height: 90vh;
+    width: 95%;
+    margin: 5vh 2.5%;
+    position: relative;
+    box-shadow: 0px 10px 25px #aaa;
+    background: linear-gradient(to bottom right,rgba(0, 0, 0, .35), rgba(0, 0, 0, .75)), url("images/final-bg.jpeg") no-repeat center;
+    background-size: cover;
+    border-radius: 3px;
+    animation: fade .8s;
+}
+
+div.final-result-wrapper {
+    height: 90vh;
+    width: 90%;
+    margin: 5vh 5%;
+    position: relative;
+}
+
+div.final-result {
+    width: 70%;
+    height: 70vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .65);
+    border-radius: 3px;
+    overflow: auto;
+}
