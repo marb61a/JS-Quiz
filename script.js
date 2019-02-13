@@ -334,6 +334,32 @@ var controller = (function(quizCtrl, UICtrl) {
         UICtrl.clearQuestList(quizCtrl.getQuestionLocalStorage);
     });
     
+    UICtrl.displayQuestion(quizCtrl.getQuestionLocalStorage, quizCtrl.getQuizProgress);
+    UICtrl.displayProgress(quizCtrl.getQuestionLocalStorage, quizCtrl.getQuizProgress);
+    
+    selectedDomItems.quizoptionsWrapper.addEventListener('click', function(e) {
+        var updatedOptionsDiv = selectedDomItems.quizoptionsWrapper.querySelectorAll('div');
+        for(var i = 0; i < updatedOptionsDiv.length; i++) {
+            if(e.target.className === 'choice-' + i) {
+                var answer = document.querySelector('.quiz-options-wrapper div p.' + e.target.className);
+                var answerResult = quizCtrl.checkAnswer(answer);
+                
+                UICtrl.newDesign(answerResult, answer);
+                
+                var nextQuestion = function(questData, progress) {
+                    if(quizCtrl.isFinished()) {
+                        console.log('Finished');
+                    } else {
+                        
+                    }
+                };
+                
+                selectedDomItems.nextQuestbtn.onclick = function() {
+                    nextQuestion(quizCtrl.getQuestionLocalStorage, quizCtrl.getQuizProgress);
+                };
+            }
+        }
+    });
     
 })(quizController, UIController);
 
