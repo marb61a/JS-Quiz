@@ -327,8 +327,13 @@ var controller = (function(quizCtrl, UICtrl) {
     });
     
     selectedDomItems.insertedQuestsWrapper.addEventListener('click', function(e) {
-        
+        UICtrl.editQuestList(e, quizCtrl.getQuestionLocalStorage, UICtrl.addInputsDynamically, UICtrl.createQuestionList);   
     });
+    
+    selectedDomItems.questsClearBtn.addEventListener('click', function() {
+        UICtrl.clearQuestList(quizCtrl.getQuestionLocalStorage);
+    });
+    
     
 })(quizController, UIController);
 
