@@ -781,3 +781,33 @@ div.final-result {
     border-radius: 3px;
     overflow: auto;
 }
+
+h2#final-score-text {
+    width: 80%;
+    text-align: center;
+    margin: 230px auto 0 auto;
+    font-size: 25px;
+    color: #eee;
+}
+
+button#final-logout-btn {
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px;
+    float: right;
+    border-radius: 25px;
+    width: 110px;
+    letter-spacing: 1.5px;
+    color: #eee;
+    background: #222;
+    outline: none;
+    border: 1px solid #ccc;
+    transition: all .3s;
+}
+
+button#final-logout-btn:hover {
+    border: 1px solid #fff;
+    background: #555;
+}
+
