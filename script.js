@@ -162,6 +162,7 @@ var UIController =(function(){
         questsClearBtn: document.getElementById('questions-clear-btn'),
         
         // Quiz Section elements
+        quizSection: document.querySelector('.quiz-container'),
         askedQuestText: document.getElementById('asked-question-text'),
         quizoptionsWrapper: document.querySelector('.quiz-options-wrapper'),
         progressBar: document.querySelector('progress'),
@@ -172,6 +173,12 @@ var UIController =(function(){
         emotionIcon: document.getElementById('emotion'), 
         nextQuestbtn: document.getElementById('next-question-btn')
         
+        
+        // Landing Page elements 
+        landPageSection: document.querySelector('.landing-page-container'),
+        startQuizBtn: document.getElementById('start-quiz-btn'),
+        firstNameInput: document.getElementById('firstname'),
+        lastNameInput: document.getElementById('lastname'), 
     };
     
     return {
@@ -375,9 +382,28 @@ var UIController =(function(){
         getFullName: function(currPerson, storageList, admin) {
             if(domItems.firstNameInput.value !== '' && domItems.lastNameInput.value !== '') {
                 if(!(domItems.firstNameInput.value === admin[0] && domItems.lastNameInput.value === admin[1])) {
-                    
+                    if(storageQuestList.getQuestionCollection().length > 0) {
+                        currPerson.fullname.push(domItems.firstNameInput.value);
+                        currPerson.lastname.push(domItems.lastNameInput.value);
+                        
+                        domItems.landPageSection.style.display = 'none';
+                        domItems.quizSection.style.display = 'block';
+                        
+                        console.log(currPerson);
+                    } else {
+                        alert("The quiz is not ready, please contact the administrator");
+                    }
+                } else {
+                    domItems.landPageSection.style.display = 'none';
+                    domItems.adminPanelSection.style.display = 'block';
                 }
+            } else {
+                alert('Please, enter your first name and last name');
             }    
+        },
+        
+        finalResult: function(currPerson) {
+            
         }
     };
     
