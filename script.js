@@ -114,7 +114,13 @@ var UIController =(function(){
         askedQuestText: document.getElementById('asked-question-text'),
         quizoptionsWrapper: document.querySelector('.quiz-options-wrapper'),
         progressBar: document.querySelector('progress'),
-        progressPar: document.getElementById('progress')
+        progressPar: document.getElementById('progress'),
+        instAnsContainer: document.querySelector('.instant-answer-container'),
+        instAnsText: document.getElementById('instant-answer-text'),
+        instAnsDiv: document.getElementById('instant-answer-wrapper'), 
+        emotionIcon: document.getElementById('emotion'), 
+        nextQuestbtn: document.getElementById('next-question-btn')
+        
     };
     
     return {
@@ -269,7 +275,7 @@ var UIController =(function(){
             
             if(storageQuestList.getQuestionCollection().length > 0) {
                 domItems.askedQuestText.textContent = storageQuestList.getQuestionCollection()[progress.questionIndex].questionText;
-                domItems.quizOptionsWrapper.innerHTML = "";
+                domItems.quizoptionsWrapper.innerHTML = "";
                 
                 for(var i = 0; i < storageQuestList.getQuestionCollection()[progress.questionIndex].options.length; i++) {
                     newOptionHTML = '<div class="choice-' + i +'"><span class="choice-' + i +'">' + 
@@ -297,11 +303,25 @@ var UIController =(function(){
             
             twoOptions = {
                 instAnswerText: ['This is a wrong answer', 'This is a correct answer'],
-                
+                instAnswerClass: ['red', 'green'],
+                emotionType: ['images/sad.png', 'images/happy.png'],
+                optionSpanBg: ['rgba(200, 0, 0, .7)', 'rgba(0, 250, 0, .2)']
             };
+            
+            domItems.quizoptionsWrapper.style.cssText = 'opacity: 0.6; pointer-events: none;';
+            domItems.instAnsContainer.style.opacity = '1';
+            domItems.instAnsText.textContent = twoOptions.instAnswerText[index];
+            domItems.instAnsDiv.className = twoOptions.instAnswerClass[index];
+            
+            selectedAnswer.previousElementSibling.style.backgroundColor = twoOptions.optionSpanBg[index];
         },
         
         resetDesign: function() {
+            domItems.quizoptionsWrapper.style.cssText = '';
+            domItems.instAnsContainer.style.opacity = '0';
+        },
+        
+        getFullName: function(currPerson, storageList, admin) {
             
         }
     };
