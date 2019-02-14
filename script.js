@@ -26,6 +26,30 @@ var quizController = (function() {
         questionLocalStorage.setQuestionCollection([]);
     }
     
+    var quizProgress = {
+        questionIndex: 0
+    };
+    
+    // Person Constructor
+    function Person(id, firstname, lastname, score) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.score = score;
+    }
+    
+    var currPersonData = {
+        fullname: [],
+        score: 0
+    };
+    
+    var personLocalStorage = {
+        setPersonData: function(newPersonData) {
+            localStorage.setItem('personData', JSON.stringify(newPersonData));
+        }
+        
+    };
+    
     return {
         getQuestionLocalStorage: questionLocalStorage,
         
@@ -90,7 +114,11 @@ var quizController = (function() {
         },
         
         checkAnswer: function(ans) {
-            
+            if(questionLocalStorage.getQuestionCollection()[quizProgress.questionIndex].correctAnswer === ans.textContent) {
+                
+            } else {
+                return false;
+            }
         }
     };
 
