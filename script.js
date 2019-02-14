@@ -46,9 +46,18 @@ var quizController = (function() {
     var personLocalStorage = {
         setPersonData: function(newPersonData) {
             localStorage.setItem('personData', JSON.stringify(newPersonData));
-        }
+        },
         
+        getPersonData: function() {
+            return JSON.parse(localStorage.getItem('personData'));  
+        },
+        
+        removePersonData: function() {
+            localStorage.removeItem('personData');
+        }
     };
+    
+    
     
     return {
         getQuestionLocalStorage: questionLocalStorage,
@@ -115,10 +124,24 @@ var quizController = (function() {
         
         checkAnswer: function(ans) {
             if(questionLocalStorage.getQuestionCollection()[quizProgress.questionIndex].correctAnswer === ans.textContent) {
-                
+                return true;    
             } else {
                 return false;
             }
+        },
+        
+        isFinished: function() {
+            return quizProgress.questionIndex +1 === questionLocalStorage.getQuestionCollection().length;            
+        },
+        
+        addPerson: function() {
+            var newPerson, personId, personData;
+            if(personLocalStorage.getPersonData().length > 0) {
+                personId = personLocalStorage.getPersonData()[personLocalStorage.getPersonData().length - 1].id + 1;
+            } else {
+                personId = 0;
+            }
+            
         }
     };
 
@@ -350,7 +373,11 @@ var UIController =(function(){
         },
         
         getFullName: function(currPerson, storageList, admin) {
-            
+            if(domItems.firstNameInput.value !== '' && domItems.lastNameInput.value !== '') {
+                if(!(domItems.firstNameInput.value === admin[0] && domItems.lastNameInput.value === admin[1])) {
+                    
+                }
+            }    
         }
     };
     
@@ -394,11 +421,20 @@ var controller = (function(quizCtrl, UICtrl) {
                 
                 UICtrl.newDesign(answerResult, answer);
                 
+                if(quizCtrl.isFinished()) {
+                    selectedDomItems.nextQuestbtn.textContent = 'Finish';
+                }
+                
                 var nextQuestion = function(questData, progress) {
                     if(quizCtrl.isFinished()) {
-                        console.log('Finished');
+                        quizCtrl.addPerson();
+                        UICtrl.finalResult(quizCtrl.getCurrPersonData);
                     } else {
+                        UICtrl.resetDesign();
+                        quizCtrl.getQuizProgress.questionIndex++;
                         
+                        UICtrl.displayQuestion(quizCtrl.getQuestionLocalStorage, quizCtrl.getQuizProgress);
+                        UICtrl.displayProgress(quizCtrl.getQuestionLocalStorage, quizCtrl.getQuizProgress);
                     }
                 };
                 
