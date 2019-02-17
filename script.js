@@ -43,6 +43,8 @@ var quizController = (function() {
         score: 0
     };
     
+    var adminFullName = ['Joe', 'Bloggs'];
+    
     var personLocalStorage = {
         setPersonData: function(newPersonData) {
             localStorage.setItem('personData', JSON.stringify(newPersonData));
@@ -57,7 +59,9 @@ var quizController = (function() {
         }
     };
     
-    
+    if(personLocalStorage.getPersonData() === null) {
+        personLocalStorage.setPersonData([]);
+    }
     
     return {
         getQuestionLocalStorage: questionLocalStorage,
@@ -142,7 +146,16 @@ var quizController = (function() {
                 personId = 0;
             }
             
-        }
+            newPerson = new Person(personId, currPersonData.fullname[0], currPersonData.fullname[1], currPersonData.score);
+            personData = personLocalStorage.getPersonData();
+            personData.push(newPerson);
+            personLocalStorage.setPersonData(personData);
+            console.log(newPerson);
+        },
+        
+        getCurrPersonData: currPersonData,
+        getAdminFullName: adminFullName,
+        getPersonLocalStorage: personLocalStorage
     };
 
 })();
@@ -152,6 +165,7 @@ var quizController = (function() {
 var UIController =(function(){
     var domItems = {
         // Admin Panel elements
+        adminPanelSection: document.querySelector('.admin-panel-container'),
         questInsertBtn: document.getElementById('question-insert-btn'),
         newQuestionText: document.getElementById('new-question-text'),
         adminOptions: document.querySelectorAll('.admin-option'),
@@ -162,6 +176,7 @@ var UIController =(function(){
         questsClearBtn: document.getElementById('questions-clear-btn'),
         resultsListWrapper: document.querySelector('.results-list-wrapper'),
         clearResultsBtn: document.getElementById('results-clear-btn'),
+        
         
         // Quiz Section elements
         quizSection: document.querySelector('.quiz-container'),
@@ -181,6 +196,11 @@ var UIController =(function(){
         startQuizBtn: document.getElementById('start-quiz-btn'),
         firstNameInput: document.getElementById('firstname'),
         lastNameInput: document.getElementById('lastname'), 
+        
+        
+        // Final Result section elements
+        finalResultSection: document.querySelector('.final-result-container'), 
+        finalScoreText: document.getElementById('final-score-text')
     };
     
     return {
@@ -520,6 +540,8 @@ var controller = (function(quizCtrl, UICtrl) {
             }
         });
     });
+    
+    UICtrl.addOnResultPanel(quizCtrl.getPersonLocalStorage);
     
 })(quizController, UIController);
 
