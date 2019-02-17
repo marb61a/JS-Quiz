@@ -160,6 +160,8 @@ var UIController =(function(){
         questUpdateBtn: document.getElementById('question-update-btn'),
         questDeleteBtn: document.getElementById('question-delete-btn'),
         questsClearBtn: document.getElementById('questions-clear-btn'),
+        resultsListWrapper: document.querySelector('.results-list-wrapper'),
+        clearResultsBtn: document.getElementById('results-clear-btn'),
         
         // Quiz Section elements
         quizSection: document.querySelector('.quiz-container'),
@@ -171,7 +173,7 @@ var UIController =(function(){
         instAnsText: document.getElementById('instant-answer-text'),
         instAnsDiv: document.getElementById('instant-answer-wrapper'), 
         emotionIcon: document.getElementById('emotion'), 
-        nextQuestbtn: document.getElementById('next-question-btn')
+        nextQuestbtn: document.getElementById('next-question-btn'),
         
         
         // Landing Page elements 
@@ -403,8 +405,28 @@ var UIController =(function(){
         },
         
         finalResult: function(currPerson) {
+            domItems.finalScoreText.textContent = currPerson.fullname[0] + ' ' 
+            + currPerson.fullname[1] + ', ' + 'your final score is ' + currPerson.score;
             
-        }
+            domItems.quizSection.style.display = 'none';
+            domItems.finalResultSection.style.display = 'block';
+        },
+        
+        addOnResultPanel: function(userData) {
+            var resultHTML;
+            domItems.resultsListWrapper.innerHTML = '';
+            
+            for(var i = 0; i < userData.getPersonData().length; i++) {
+                resultHTML = '<p class="person person-' + i + '"><span class="person-' + i 
+                + '">' + userData.getPersonData()[i].firstname + ' ' + userData.getPersonData()[i].lastname 
+                + ' - ' + userData.getPersonData()[i].score + ' Points</span><button id="delete-result-btn_' 
+                + userData.getPersonData()[i].id + '" class="delete-result-btn">Delete</button></p>';
+                
+                domItems.resultsListWrapper.insertAdjacentHTML('afterbegin', resultHTML);
+            }
+        },
+        
+        
     };
     
 })();
