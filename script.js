@@ -426,6 +426,22 @@ var UIController =(function(){
             }
         },
         
+        deleteResult: function(event, userData) {
+            var getId, personArr;
+            personArr = userData.getPersonData();
+            
+            if('delete-result-btn_'.indexOf(event.target.id)) {
+                getId = parseInt(event.target.id.split('_')[1]);
+                
+                for(var i = 0; i < personArr.length; i++) {
+                    if(personArr[i].id === getId) {
+                        personArr.splice(i, 1);
+                        userData.setPersonData(personArr);
+                    }
+                }
+            }
+        },
+        
         
     };
     
@@ -491,6 +507,18 @@ var controller = (function(quizCtrl, UICtrl) {
                 };
             }
         }
+    });
+    
+    selectedDomItems.startQuizBtn.addEventListener('click', function() {
+        UICtrl.getFullName(quizCtrl.getCurrPersonData, quizCtrl.getQuestionLocalStorage, quizCtrl.getAdminFullName);
+    });
+    
+    selectedDomItems.lastNameInput.addEventListener('focus', function() {
+        selectedDomItems.lastNameInput.addEventListener('keypress', function(e) {
+            if(e.keyCode === 13) {
+                UICtrl.getFullName(quizCtrl.getCurrPersonData, quizCtrl.getQuestionLocalStorage, quizCtrl.getAdminFullName);
+            }
+        });
     });
     
 })(quizController, UIController);
