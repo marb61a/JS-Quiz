@@ -462,7 +462,19 @@ var UIController =(function(){
             }
         },
         
-        
+        clearResultList: function(userData) {
+            var conf;
+            if(userData.getPersonData() !== null) {
+                if(userData.getPersonData().length > 0) {
+                    conf = confirm('Warning! You will lose entire result list');
+                    
+                    if(conf) {
+                        userData.removePersonData();
+                        domItems.resultsListWrapper.innerHTML = '';
+                    }
+                }
+            }
+        }
     };
     
 })();
@@ -542,6 +554,15 @@ var controller = (function(quizCtrl, UICtrl) {
     });
     
     UICtrl.addOnResultPanel(quizCtrl.getPersonLocalStorage);
+    
+    selectedDomItems.resultsListWrapper.addEventListener('click', function(e) {
+        UICtrl.deleteResult(e, quizCtrl.getPersonLocalStorage);
+        UICtrl.addResultOnPanel(quizCtrl.getPersonLocalStorage);
+    });
+    
+    selectedDomItems.clearResultsBtn.addEventListener('click', function() {
+        UICtrl.clearResultList(quizCtrl.getPersonLocalStorage);
+    });
     
 })(quizController, UIController);
 
