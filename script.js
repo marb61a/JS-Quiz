@@ -128,6 +128,7 @@ var quizController = (function() {
         
         checkAnswer: function(ans) {
             if(questionLocalStorage.getQuestionCollection()[quizProgress.questionIndex].correctAnswer === ans.textContent) {
+                currPersonData.score++;
                 return true;    
             } else {
                 return false;
@@ -313,7 +314,7 @@ var UIController =(function(){
                         if(foundItem.options.length > 1) {
                             if(foundItem.correctAnswer !== "") {
                                 getStorageQuestList.splice(placeInArr, 1, foundItem);
-                                getStorageQuestList.setQuestionCollection(getStorageQuestList);
+                                getStorageQuestList.setQuestionCollection(storageQuestList);
                                 backDefaultView();
                             }
                         } else {
@@ -332,7 +333,7 @@ var UIController =(function(){
                     backDefaultView();
                 };
                 
-                domItems.questDeleteBtn.onclick = deleteQuestion();
+                domItems.questDeleteBtn.onclick = deleteQuestion;
             }
         },
         
@@ -392,6 +393,7 @@ var UIController =(function(){
             domItems.instAnsContainer.style.opacity = '1';
             domItems.instAnsText.textContent = twoOptions.instAnswerText[index];
             domItems.instAnsDiv.className = twoOptions.instAnswerClass[index];
+            domItems.emotionIcon.setAttribute('src', twoOptions.emotionType[index]);
             
             selectedAnswer.previousElementSibling.style.backgroundColor = twoOptions.optionSpanBg[index];
         },
@@ -401,12 +403,12 @@ var UIController =(function(){
             domItems.instAnsContainer.style.opacity = '0';
         },
         
-        getFullName: function(currPerson, storageList, admin) {
+        getFullName: function(currPerson, storageQuestList, admin) {
             if(domItems.firstNameInput.value !== '' && domItems.lastNameInput.value !== '') {
                 if(!(domItems.firstNameInput.value === admin[0] && domItems.lastNameInput.value === admin[1])) {
                     if(storageQuestList.getQuestionCollection().length > 0) {
                         currPerson.fullname.push(domItems.firstNameInput.value);
-                        currPerson.lastname.push(domItems.lastNameInput.value);
+                        currPerson.fullname.push(domItems.lastNameInput.value);
                         
                         domItems.landPageSection.style.display = 'none';
                         domItems.quizSection.style.display = 'block';
@@ -493,7 +495,7 @@ var controller = (function(quizCtrl, UICtrl) {
         
         var checkBoolean = quizCtrl.addQuestionOnLocalStorage(selectedDomItems.newQuestionText, adminOptions);
         if(checkBoolean) {
-            UI.createQuestionList(quizCtrl.getQuestionLocalStorage);    
+            UICtrl.createQuestionList(quizCtrl.getQuestionLocalStorage);    
         }
     });
     

@@ -90,6 +90,7 @@ div.landing-inputs-wrapper input::-moz-placeholder {
 
 div.landing-inputs-wrapper input:focus {
     border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #fff;
 }
 
 #start-quiz-btn {
@@ -391,7 +392,7 @@ div.inserted-questions-wrapper p button:hover {
     border: 1px solid #fff;
 }
 
-div.result-list-container {
+div.results-list-container {
     width: 30%;
     position: absolute;
     height: 90%;
@@ -402,15 +403,15 @@ div.result-list-container {
     overflow: auto;
 }
 
-clear {
+.clear {
     overflow: hidden;
 }
 
-div.result-list-container h2 {
+div.results-list-container h2 {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 30px;
     color: #eee;
-    text-align: right;
+    text-align: left;
     float: left;
     padding: 20px;
 }
@@ -431,6 +432,12 @@ div.result-list-container h2 {
     transition: all .3s;
 }
 
+#results-clear-btn:hover {
+    border: 1px solid #fff;
+    background: #555;
+    color: #fff;
+}
+
 div.results-list-container::-webkit-scrollbar {
     background: rgba(0,0,0,.2);
     width: 15px
@@ -440,7 +447,7 @@ div.results-list-container::-webkit-scrollbar-thumb {
       background-color: #333;  
 }
 
-div.result-list-container p {
+div.results-list-container p {
    font-family: 'Josefin Sans', sans-serif;
    width: 90%;
    padding: 5px;
@@ -541,7 +548,7 @@ div#instant-answer-wrapper {
 }
 
 div#instant-answer-wrapper::before {
-    content: "";
+    content: " ";
     height: 0;
     position: absolute;
     width: 0;
